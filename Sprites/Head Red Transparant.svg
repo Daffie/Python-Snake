@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="32"
+   height="32"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="Head Red Transparant.svh.svg">
+  <defs
+     id="defs4">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3149">
+      <path
+         style="fill:#000000"
+         d="m 0,1036.5378 0,-15.8759 7.75,0.1014 c 7.254962,0.095 8.021473,0.3196 12,3.5175 2.3375,1.8789 4.25,3.9341 4.25,4.5671 0,0.6331 1.586974,2.9202 3.52661,5.0826 4.303574,4.7979 5.078385,7.469 3.598896,12.4071 -1.428992,4.7696 -2.361819,5.0551 -18.375506,5.6235 l -12.75,0.4527 0,-15.876 z m 16.662281,-6.4256 c -0.277413,-0.6875 -0.504386,-0.125 -0.504386,1.25 0,1.375 0.226973,1.9375 0.504386,1.25 0.277412,-0.6875 0.277412,-1.8125 0,-2.5 z"
+         id="path3151"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="10.771323"
+     inkscape:cx="25.237233"
+     inkscape:cy="16.784759"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1024"
+     inkscape:window-height="548"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Laag 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-1020.3622)">
+    <image
+       y="1020.3622"
+       x="0"
+       id="image3004"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAcRJREFU
+WIXtlzFIG1EYgL8XDCTgSVTSiw5umgiCgw7pUNfgUuhioqNTxEHURdFJlNzSoVu6pF2UuDo0cXRL
+oUO3oO56EpVTA0ZFn4Moh8a75NJwYP3gwcF7//0fP3fvvR9VVaWZcDgsAcuRSqXkv0Is0SnXOOGR
+Odr5QAtW5CizwyUAqqqi67rleiuERlA6jgYuuONPbJh8Pu8o3tNIcgAFD93bBYQQZLPZuuMbroCZ
+Dc7ZLP4lEonUHNNwBcxM0MZI/wA+n88dAYB5Oli+UohGo80VyGCwQIlVjl/MeREM/d4lmUw2RyBH
+mT1uACgjyWA4eY1zATOGUT15D16Ovq+TTqebK2BFFD8/p2YpFAruCAB8QWHs4ycqlYo7AnY0LBAI
+BGzXTNOO4vc3R6BWVgkihCCRSLgjAKARxLP5C03T3BEAGMRHfnHl6fR0JDBKK314AWhFMIn9d/A8
+fmb0M7qu29w8LKg36Wu49htOEqC3q/sN7APvAu8CTslgsH948B9XwFWBHGW+5bYIhULOt2InLFAy
+PT/QArDLNT84YxyFQWpvKqrxlVNK3Fadk7J6EyZjsZiUUsp4PG7bmtuNYrFYV3t+D3SDCfR1Dcvv
+AAAAAElFTkSuQmCC
+"
+       height="32"
+       width="32"
+       clip-path="url(#clipPath3149)"
+       transform="matrix(1.0058459,0,0,1.0094547,0,-9.9497424)" />
+  </g>
+</svg>
