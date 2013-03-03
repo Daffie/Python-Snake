@@ -12,7 +12,7 @@ class Segment(pygame.sprite.Sprite):
 		# Save variables
 		self.orientation = orientation
 		# Set height, width
-		self.image = pygame.image.load(os.path.join(self.DIRECTORY, self.SPRITE_IMAGE)).convert()
+		self.image = pygame.image.load(os.path.join(self.DIRECTORY, self.SPRITE_IMAGE)).convert_alpha()
 		self.image = pygame.transform.scale(self.image, (constants.SEGMENT_WIDTH, constants.SEGMENT_HEIGHT))
 		self.image = pygame.transform.rotate(self.image, self.get_angle())
 		# Make our top-left corner the passed-in location.

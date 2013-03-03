@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="Head Red Transparant.svh.svg">
+   sodipodi:docname="Head RedTry.png">
   <defs
      id="defs4">
     <clipPath
@@ -35,9 +35,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="10.771323"
-     inkscape:cx="25.237233"
-     inkscape:cy="16.784759"
+     inkscape:zoom="43.085293"
+     inkscape:cx="6.8044223"
+     inkscape:cy="30.7899"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -81,6 +81,15 @@ AAAAAElFTkSuQmCC
        height="32"
        width="32"
        clip-path="url(#clipPath3149)"
-       transform="matrix(1.0058459,0,0,1.0094547,0,-9.9497424)" />
+       transform="matrix(1.0058459,0,0,1.0094547,0,-9.9497424)"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.02071261px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 4.1209838,1020.7865 -3.1126071,-0.072"
+       id="path3153"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
   </g>
 </svg>
