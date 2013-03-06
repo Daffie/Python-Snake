@@ -14,6 +14,8 @@ screen = pygame.display.set_mode([640, 480])
 pygame.display.set_caption('Python-Snake')
 length = 3
 direction = 0
+locations = []
+directions = []
 
 snake = Snake((250, 90), length, direction)
 
