@@ -23,12 +23,12 @@ clock = pygame.time.Clock()
 done = False
 
 # Clear screen
-screen.fill(black)
+screen.fill(white)
 snake.draw(screen)
 # Flip screen
 pygame.display.flip()
 # Pause
-clock.tick(1)
+clock.tick(5)
 
 while done == False:
 	for event in pygame.event.get():
@@ -49,11 +49,11 @@ while done == False:
 	snake.move(direction, length)
 
 	# Clear screen
-	screen.fill(black)
+	screen.fill(white)
 	snake.draw(screen)
 	# Flip screen
 	pygame.display.flip()
 	# Pause
-	clock.tick(1)
+	clock.tick(5)
 
 pygame.quit()
