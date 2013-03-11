@@ -2,6 +2,7 @@ import pygame
 from map import Map, MapParser
 from board import Board
 from snake import Snake
+import food
 import constants
 
 # Call this function so the Pygame library can initialize itself
@@ -38,6 +39,7 @@ map = Map(entries, lines, entry_list)
 snake = Snake(locations, directions)
 board.add_map(map)
 board.add_snake(snake)
+board.add_food(food)
 
 clock = pygame.time.Clock()
 done = False

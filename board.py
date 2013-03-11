@@ -2,18 +2,23 @@
 
 from snake import Snake
 import constants
+import food
 
 class Board(object):
 	"""Class for basic boar behaviour"""
-	def __init__(self, map = None, snakes = []):
+	def __init__(self, map = None, snakes = [], food = []):
 		self.snakes = snakes
 		self.map = map
+		self.food = food
 
 	def add_snake(self, snake):
 		self.snakes.append(snake)
 		
 	def add_map(self, map):
 		self.map = map
+
+	def add_food(self, food):
+                self.food.append(food)
 		
 	def draw(self, screen):
 		self.map.draw(screen)
