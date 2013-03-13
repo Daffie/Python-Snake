@@ -51,7 +51,7 @@ pygame.display.flip()
 # Pause
 clock.tick(1)
 
-while done == False:
+while ((done == False) and board.has_snakes()):
 	for event in pygame.event.get():
 		if (event.type == pygame.QUIT):
 			done = True

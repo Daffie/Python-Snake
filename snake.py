@@ -13,6 +13,9 @@ class Snake(object):
 		# ... and a (ordered) list of segments
 		self.segments = []
 		length = len(locations)
+
+		# Snake is not killed
+		self.killed = False
 		
 		# Add head segment
 		self.add_segment(0, HeadSegment(locations[0], (directions[0], directions[0])))
@@ -68,4 +71,34 @@ class Snake(object):
 		return self.segments[self.get_length() - 1]
 		
 	def draw(self, screen):
-		self.sprites.draw(screen)
+		# Draw the snake to the screen only when the snake is alive
+		# Or when the snake is dead and timeout is 0, 2, 4, 6
+		if (self.killed):
+			if (self.timeout % 2):
+				# Draw the snake
+				self.sprites.draw(screen)
+				# Update timeout
+				self.timeout += 1
+		else:
+			# Draw the snake
+			self.sprites.draw(screen)			
+
+	def get_locations(self):
+		# Create empty list of locations
+		locations = []
+
+		# Fill locations list with locations of segments
+		for segment in self.segments:
+			locations.append(segment.get_location())
+
+		return locations
+
+	def kill(self):
+		self.killed = True
+		self.timeout = 0
+
+	def is_dead(self):
+		return self.killed
+
+	def get_timeout(self):
+		return timeout

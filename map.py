@@ -39,8 +39,8 @@ class MapParser(object):
 class Map(object):
 
 	def __init__(self, entries, lines, entry_list):
-		self.mapentries = pygame.sprite.Group()
-		# Store the size of the 
+		self.map_entries = pygame.sprite.Group()
+		# Store the size of the map
 		width = entries * (constants.SEGMENT_WIDTH + constants.SEGMENT_MARGIN)
 		height = lines * (constants.SEGMENT_HEIGHT + constants.SEGMENT_MARGIN)
 		self.size = (width, height)
@@ -58,10 +58,10 @@ class Map(object):
 
 			if (entry == "gr" or entry == "bw"):
 				# If the sprite is a grass entry, it is not solid
-				self.mapentries.add(MapEntry(path, (x, y), True))
+				self.map_entries.add(MapEntry(path, (x, y), False))
 			else:
 				# Otherwise, the sprite is solid
-				self.mapentries.add(MapEntry(path, (x, y), False))
+				self.map_entries.add(MapEntry(path, (x, y), True))
 
 			# Update the current entry and line				
 			current_entry += 1
@@ -71,10 +71,26 @@ class Map(object):
 				current_entry = 0
 
 	def draw(self, screen):
-		self.mapentries.draw(screen)
+		self.map_entries.draw(screen)
 		
 	def get_size(self):
 		return self.size
+
+	def contains_solid_entry(self, location):
+		# Check if location on map contains solid MapEntry
+		for map_entry in self.map_entries:
+			# Store entry location
+			entry_location = map_entry.get_location()
+			entry_next_location = (entry_location[0] + constants.SEGMENT_WIDTH + constants.SEGMENT_MARGIN, entry_location[1] + constants.SEGMENT_HEIGHT + constants.SEGMENT_MARGIN)
+
+			if ((entry_location[0] <= location[0] < entry_next_location[0]) and (entry_location[1] <= location[1] < entry_next_location[1])):
+				# The sprite is on this MapEntry, check if solid
+				if (map_entry.is_solid()):
+					return True
+
+		# Else return false
+		return False
+				
 				
 class MapEntry(pygame.sprite.Sprite):
 
@@ -84,6 +100,7 @@ class MapEntry(pygame.sprite.Sprite):
 		# Save variables
 		self.solid = solid
 		# Set height, width
+		print(image_path)
 		self.image = pygame.image.load(image_path).convert()
 		correct_size = (constants.SEGMENT_WIDTH + constants.SEGMENT_MARGIN, constants.SEGMENT_HEIGHT + constants.SEGMENT_MARGIN)
 		self.image = pygame.transform.scale(self.image, correct_size)
@@ -91,5 +108,8 @@ class MapEntry(pygame.sprite.Sprite):
 		self.rect = self.image.get_rect()
 		self.rect.move_ip(location)
 		
-	def isSolid(self):
+	def is_solid(self):
 		return self.solid
+
+	def get_location(self):
+		return self.rect.topleft
