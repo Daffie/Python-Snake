@@ -3,6 +3,7 @@ from map import Map, MapParser
 from board import Board
 from snake import Snake
 import constants
+import sys
 
 # Define title:
 TITLE = "Python-Snake | Score: "
@@ -83,8 +84,8 @@ while ((done == False) and board.has_snakes()):
 
 # Show credits
 screen.fill(constants.BACKGROUND_COLOR)
-font1 = pygame.font.Font(None, 50)
-font2 = pygame.font.Font(None, 25)
+font1 = pygame.font.SysFont("arial", 50)
+font2 = pygame.font.SysFont("arial", 25)
 text_surface1 = font1.render("GAME OVER", True, constants.TEXT_COLOR)
 text_surface2 = font2.render("Score: " + str((snake.get_length() - 3) * 10), True, constants.TEXT_COLOR)
 location1 = ((width - text_surface1.get_width())/2, (height - text_surface1.get_height())/2)
@@ -100,5 +101,7 @@ while (done == False):
 			done = True
 		if (event.type == pygame.KEYDOWN):
 				done = True
+	clock.tick(5)
 
 pygame.quit()
+sys.exit()
