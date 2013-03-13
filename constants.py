@@ -12,7 +12,7 @@ SEGMENT_MARGIN = 0
 MAPS_PATH = os.path.join("Maps")
 MAP_SPRITES_PATH = os.path.join("Sprites", "map sprites")
 
-# Images and functions used in the used in the map:
+# Images and functions used in the map:
 MAP_IMAGES = {
 	"bx": "border_bottom.png",
 	"bz": "border_bottomleft.png",

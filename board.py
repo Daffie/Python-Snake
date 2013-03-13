@@ -5,7 +5,7 @@ import constants
 import food
 
 class Board(object):
-	"""Class for basic boar behaviour"""
+	"""Class for basic board behaviour"""
 	def __init__(self, map = None, snakes = [], food = []):
 		self.snakes = snakes
 		self.map = map
@@ -18,7 +18,7 @@ class Board(object):
 		self.map = map
 
 	def add_food(self, food):
-		self.food.append(food)
+                self.food = food
 		
 	def draw(self, screen):
 		self.map.draw(screen)
