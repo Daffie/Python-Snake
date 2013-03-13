@@ -13,9 +13,11 @@ class Snake(object):
 		# ... and a (ordered) list of segments
 		self.segments = []
 		length = len(locations)
+		self.new_length = length
 
 		# Snake is not killed
 		self.killed = False
+		self.timeout = 0
 		
 		# Add head segment
 		self.add_segment(0, HeadSegment(locations[0], (directions[0], directions[0])))
@@ -35,7 +37,7 @@ class Snake(object):
 		self.segments.remove(segment)
 		self.sprites.remove(segment)
 		
-	def move(self, new_direction, new_length, new_location):
+	def move(self, new_direction, new_location):
 		# Clear previous head segment and remove it
 		head_segment = self.get_head_segment()
 		self.remove_segment(head_segment)
@@ -48,18 +50,21 @@ class Snake(object):
 			self.add_segment(1, BodySegment(head_segment.get_location(), (new_direction, head_segment.get_direction())))
 
 		# If new length is smaller than self.length, remove segments until correct
-		if (new_length < self.get_length()):
+		if (self.new_length < self.get_length()):
 			# Remove body segments
-			while new_length < self.get_length():
+			while self.new_length < self.get_length():
 				last_segment = self.get_last_body_segment()
 				self.remove_segment(last_segment)
 			
 			# Reallocate tail segment
 			self.remove_segment(self.get_tail_segment())
-			self.add_segment(new_length - 1, TailSegment(last_segment.get_location(), last_segment.get_orientation()))
+			self.add_segment(self.new_length - 1, TailSegment(last_segment.get_location(), last_segment.get_orientation()))
 
 	def get_length(self):
 		return len(self.segments)
+
+	def set_new_length(self, length):
+		self.new_length = length
 			
 	def get_head_segment(self):
 		return self.segments[0]
@@ -72,13 +77,15 @@ class Snake(object):
 		
 	def draw(self, screen):
 		# Draw the snake to the screen only when the snake is alive
-		# Or when the snake is dead and timeout is 0, 2, 4, 6
+		# Or when the snake is dead and timeout is 0, 2, 4, 6, ...
 		if (self.killed):
-			if (self.timeout % 2):
+			# Update timeout
+			self.timeout += 1
+
+			if (self.timeout % 2 == 0):
 				# Draw the snake
 				self.sprites.draw(screen)
-				# Update timeout
-				self.timeout += 1
+
 		else:
 			# Draw the snake
 			self.sprites.draw(screen)			
@@ -95,10 +102,9 @@ class Snake(object):
 
 	def kill(self):
 		self.killed = True
-		self.timeout = 0
 
 	def is_dead(self):
 		return self.killed
 
 	def get_timeout(self):
-		return timeout
+		return self.timeout

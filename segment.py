@@ -17,7 +17,7 @@ class Segment(pygame.sprite.Sprite):
 
 		# Flip according to orientation
 		self.image = pygame.transform.rotate(self.image, self.get_angle())
-		self.image = pygame.transform.flip(self.image, self.get_flip(), 0)		
+		self.image = pygame.transform.flip(self.image, 0, self.get_flip())		
 		
 		# Make our top-left corner the passed-in location.
 		self.rect = self.image.get_rect()
@@ -69,4 +69,15 @@ class CornerSegment(Segment):
 			return True
 	
 	def get_angle(self):
-		return self.get_orientation()[1] * 90
+		# Difference between next and previous direction
+		difference = self.get_orientation()[0] - self.get_orientation()[1]
+		
+		# If difference is -3 or 3, it is either 1 or -1
+		if ((difference == -3) or (difference == 3)):
+			difference = -difference/3
+			
+		# Now calculate the turning angle:
+		if (difference == 1):
+			return self.get_orientation()[1] * 90
+		else: 
+			return self.get_orientation()[1] * -90

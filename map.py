@@ -100,7 +100,6 @@ class MapEntry(pygame.sprite.Sprite):
 		# Save variables
 		self.solid = solid
 		# Set height, width
-		print(image_path)
 		self.image = pygame.image.load(image_path).convert()
 		correct_size = (constants.SEGMENT_WIDTH + constants.SEGMENT_MARGIN, constants.SEGMENT_HEIGHT + constants.SEGMENT_MARGIN)
 		self.image = pygame.transform.scale(self.image, correct_size)

@@ -2,18 +2,22 @@ import os
 import pygame
 import constants
 
-#Food class
+# Food class
 
-class food(pygame.sprite.Sprite):
-    DIRECTORY = os.path.join("Sprites", "map sprites")
-    def __init__(self, rocklocation):
-        # Call the parent's constructor
-        pygame.sprite.Sprite.__init__(self)
-        rocklocation = (32, 32)
-	# Set height, width
-        self.image = pygame.image.load(os.path.join(self.DIRECTORY, self.SPRITE_IMAGE)).convert_alpha()
-        self.image = pygame.transform.scale(self.image, (constants.SEGMENT_WIDTH, constants.SEGMENT_HEIGHT))
-        SPRITE_IMAGE = "rock.png"
+class Food(pygame.sprite.Sprite):
+	DIRECTORY = os.path.join("Sprites", "map sprites")
+	SPRITE_IMAGE = "rock.png"
 
-    def draw(self, screen):
-        self.sprites.draw(screen)
+	def __init__(self, location):
+		# Call the parent's constructor
+		pygame.sprite.Sprite.__init__(self)
+		# Set height, width
+		self.image = pygame.image.load(os.path.join(self.DIRECTORY, self.SPRITE_IMAGE)).convert_alpha()
+		self.image = pygame.transform.scale(self.image, (constants.SEGMENT_WIDTH, constants.SEGMENT_HEIGHT))
+		
+		# Make our top-left corner the passed-in location
+		self.rect = self.image.get_rect()
+		self.rect.move_ip(location)
+
+	def get_location(self):
+		return self.rect.topleft

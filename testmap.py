@@ -2,14 +2,16 @@ import pygame
 from map import Map, MapParser
 from board import Board
 from snake import Snake
-import food
 import constants
+
+# Define title:
+TITLE = "Python-Snake | Score: "
 
 # Call this function so the Pygame library can initialize itself
 pygame.init()
 
 # Get the dimensions of the map
-(entries, lines, entry_list) = MapParser.parse_mapfile("test_map.txt")
+(entries, lines, entry_list) = MapParser.parse_mapfile("test_map2.txt")
 width = entries * (constants.SEGMENT_WIDTH + constants.SEGMENT_MARGIN)
 height = lines * (constants.SEGMENT_HEIGHT + constants.SEGMENT_MARGIN)
 
@@ -23,7 +25,7 @@ board = Board()
 # Snake parameters:
 length = 3
 direction = 0
-location = (240, 96)
+location = (160, 96)
 locations = []
 directions = []
 
@@ -39,7 +41,7 @@ map = Map(entries, lines, entry_list)
 snake = Snake(locations, directions)
 board.add_map(map)
 board.add_snake(snake)
-board.add_food(food)
+board.spawn_food()
 
 clock = pygame.time.Clock()
 done = False
@@ -49,8 +51,9 @@ board.draw(screen)
 # Flip screen
 pygame.display.flip()
 # Pause
-clock.tick(1)
+clock.tick(5)
 
+# Play game
 while ((done == False) and board.has_snakes()):
 	for event in pygame.event.get():
 		if (event.type == pygame.QUIT):
@@ -63,16 +66,39 @@ while ((done == False) and board.has_snakes()):
 			if (event.key == pygame.K_UP):
 				direction = 1
 			if (event.key == pygame.K_DOWN):
-				direction = 3
-			if (event.key == pygame.K_SPACE):
-				length += 1
+				direction = 3	
+			if (event.key == pygame.K_ESCAPE):
+				done = True
 
-	board.move_snake(snake, direction, length)
+	# Move snake
+	board.move_snake(snake, direction)
+	# Update caption
+	pygame.display.set_caption(TITLE + str((snake.get_length() - 3) * 10))
 	# Draw screen
 	board.draw(screen)
 	# Flip screen
 	pygame.display.flip()
 	# Pause
-	clock.tick(1)
+	clock.tick(5)
+
+# Show credits
+screen.fill(constants.BACKGROUND_COLOR)
+font1 = pygame.font.Font(None, 50)
+font2 = pygame.font.Font(None, 25)
+text_surface1 = font1.render("GAME OVER", True, constants.TEXT_COLOR)
+text_surface2 = font2.render("Score: " + str((snake.get_length() - 3) * 10), True, constants.TEXT_COLOR)
+location1 = ((width - text_surface1.get_width())/2, (height - text_surface1.get_height())/2)
+location2 = ((width - text_surface2.get_width())/2, location1[1] + text_surface1.get_height() / 2 + 20)
+screen.blit(text_surface1, location1)
+screen.blit(text_surface2, location2)
+pygame.display.flip()
+
+done = False
+while (done == False):
+	for event in pygame.event.get():
+		if (event.type == pygame.QUIT):
+			done = True
+		if (event.type == pygame.KEYDOWN):
+				done = True
 
 pygame.quit()

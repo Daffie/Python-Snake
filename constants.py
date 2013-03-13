@@ -50,3 +50,6 @@ ITEM_SPRITES = {
 	"l1": "streetlight_bottom.png",
 	"l2": "streetlight_top.png"
 }
+
+BACKGROUND_COLOR = (0, 0, 0)
+TEXT_COLOR = (255, 255, 255)
